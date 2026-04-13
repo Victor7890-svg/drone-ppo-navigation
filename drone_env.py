@@ -10,7 +10,7 @@ class DroneEnv(gym.Env):
         self.client.confirmConnection()
         self.client.enableApiControl(True)
         self.client.armDisarm(True)
-        self.target = np.array([20, 0.0, -3.0])
+        self.target = np.array([110, 85.0, -3.0])
         self.max_steps = 2000
         self.current_step = 0
         self.prev_dist = None
