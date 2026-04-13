@@ -1,4 +1,4 @@
-\# Drone Urban Low-Altitude Obstacle Avoidance Navigation
+# Drone Urban Low-Altitude Obstacle Avoidance Navigation
 
 
 
@@ -6,43 +6,50 @@ An autonomous drone obstacle avoidance and navigation system based on deep reinf
 
 
 
-\## Results
+## Results
 
 
 
-\- Final test success rate: \*\*20/20 = 100%\*\*
+- Final test success rate: \*\*20/20 = 100%\*\*
 
-\- Collision rate: \*\*0%\*\*
+- Collision rate: \*\*0%\*\*
 
-\- Navigation distance: \~138 meters (including turns)
-
-
-
-\## Tech Stack
+- Navigation distance: \~138 meters (including turns)
 
 
 
-\- Simulation: Microsoft AirSim + Unreal Engine 4.27
-
-\- RL Algorithm: PPO (Proximal Policy Optimization)
-
-\- Framework: Stable-Baselines3 + Gymnasium
-
-\- Language: Python 3.8
+## Tech Stack
 
 
 
-\## File Structure
+- Simulation: Microsoft AirSim + Unreal Engine 4.27
+
+- RL Algorithm: PPO (Proximal Policy Optimization)
+
+- Framework: Stable-Baselines3 + Gymnasium
+
+- Language: Python 3.8
 
 
 
-| File | Description |
+## File Structure
 
-|------|-------------|
 
-| `drone\_env.py` | Custom Gym environment with observation space, action space, and reward function |
+| Module | Description |
+|-------|-------|
+| Aerodynamic Core | Blade Element Theory (BET) engine computing thrust, torque, power, and Figure of Merit (FM). |
+| Flight Simulator | 6‑DOF physics with waypoint navigation, battery discharge modeling, ground effect & motor lag. |  
+| Live Dashboard | Real‑time altitude, RPM, thrust, power gauges with manual RPM override and auto‑flight controls. |  
+| Parametric Design | Interactive modification of rotor radius, chord, blade count, mass, etc. with immediate feedback of RPM. |
+| Data Recording | Automatic CSV logging of all flight parameters; replay any previous flight with speed control. |  
+| 3D Visualization | OpenGL rendering of the eVTOL model, animated rotors, thrust cones, and altitude‑colored trail. |  
+| Fault Injection | Simulate single‑rotor failure to evaluate emergency descent behavior (planned). |
+| File | Description | 
+|------|-------------|  
 
-| `train.py` | PPO training script, supports loading existing model to continue training |
+| `drone\_env.py` | Custom Gym environment with observation space, action space, and reward function |  
+
+| `train.py` | PPO training script, supports loading existing model to continue training   
 
 | `test\_model.py` | Model evaluation script, computes success rate and collision rate |
 
