@@ -10,11 +10,11 @@ An autonomous drone obstacle avoidance and navigation system based on deep reinf
 
 
 
-- Final test success rate: \*\*20/20 = 100%\*\*
+- Final test success rate: **20/20 = 100%**
 
-- Collision rate: \*\*0%\*\*
+- Collision rate: **0%**
 
-- Navigation distance: \~138 meters (including turns)
+- Navigation distance: ~138 meters (including turns)
 
 
 
@@ -35,27 +35,15 @@ An autonomous drone obstacle avoidance and navigation system based on deep reinf
 ## File Structure
 
 
-| Module | Description |
+| File | Description |
 |-------|-------|
-| Aerodynamic Core | Blade Element Theory (BET) engine computing thrust, torque, power, and Figure of Merit (FM). |
-| Flight Simulator | 6‑DOF physics with waypoint navigation, battery discharge modeling, ground effect & motor lag. |  
-| Live Dashboard | Real‑time altitude, RPM, thrust, power gauges with manual RPM override and auto‑flight controls. |  
-| Parametric Design | Interactive modification of rotor radius, chord, blade count, mass, etc. with immediate feedback of RPM. |
-| Data Recording | Automatic CSV logging of all flight parameters; replay any previous flight with speed control. |  
-| 3D Visualization | OpenGL rendering of the eVTOL model, animated rotors, thrust cones, and altitude‑colored trail. |  
-| Fault Injection | Simulate single‑rotor failure to evaluate emergency descent behavior (planned). |
-| File | Description | 
-|------|-------------|  
-
-| `drone\_env.py` | Custom Gym environment with observation space, action space, and reward function |  
-
-| `train.py` | PPO training script, supports loading existing model to continue training   
-
-| `test\_model.py` | Model evaluation script, computes success rate and collision rate |
+| `drone\_env.py` | Custom Gym environment with observation space, action space, and reward function |
+| `train.py` | PPO training script, supports loading existing model to continue training |  
+| `test\_model.py` | Model evaluation script, computes success rate and collision rate |  
 
 
 
-\## Setup
+## Setup
 
 
 
@@ -75,11 +63,11 @@ pip install airsim stable-baselines3 gymnasium torch opencv-python
 
 
 
-\## Usage
+## Usage
 
 
 
-\*\*Train the model:\*\*
+*Train the model:*
 
 ```bash
 
@@ -91,7 +79,7 @@ python train.py
 
 
 
-\*\*Test the model:\*\*
+*Test the model:*
 
 ```bash
 
@@ -101,11 +89,11 @@ python test\_model.py
 
 
 
-\## Training Strategy
+## Training Strategy
 
 
 
-Used \*\*Curriculum Learning\*\* to progressively increase task difficulty:
+Used **Curriculum Learning** to progressively increase task difficulty:
 
 
 
@@ -119,29 +107,29 @@ Used \*\*Curriculum Learning\*\* to progressively increase task difficulty:
 
 
 
-\## Reward Function
+## Reward Function
 
 
 
-\- Getting closer to target: `+ distance\_reduction × 2`
+- Getting closer to target: `+ distance\_reduction × 2`
 
-\- Time penalty per step: `-0.1`
+- Time penalty per step: `-0.1`
 
-\- Collision penalty: `-100`
+- Collision penalty: `-100`
 
-\- Reaching target reward: `+200`
-
-
-
-\## Requirements
+- Reaching target reward: `+200`
 
 
 
-\- GPU: NVIDIA GTX 1080 or above (RTX 3060+ recommended)
+## Requirements
 
-\- RAM: 16GB+
 
-\- Storage: 100GB+
 
-\- OS: Windows 10/11 x64
+- GPU: NVIDIA GTX 1080 or above (RTX 3060+ recommended)
+
+- RAM: 16GB+
+
+- Storage: 100GB+
+
+- OS: Windows 10/11 x64
 
