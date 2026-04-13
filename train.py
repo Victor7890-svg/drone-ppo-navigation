@@ -7,7 +7,7 @@ env = DroneEnv()
 model = PPO.load("drone_ppo_model", env=env)
 
 print("继续训练！")
-model.learn(total_timesteps=2000)
+model.learn(total_timesteps=10000)
 model.save("drone_ppo_model")
 print("训练完成！")
 
